@@ -1,0 +1,99 @@
+@use './variables' as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 70% 30%, #e2d4f5 0%, $color-bg 55%, #c4a8e8 100%);
+  padding-inline: $space-4;
+
+  @include bp-md {
+    padding-inline: $space-8;
+  }
+}
+
+.hero__dial {
+  position: absolute;
+  top: 50%;
+  right: -12%;
+  transform: translateY(-50%);
+  width: 620px;
+  height: 620px;
+  opacity: 0.35;
+  pointer-events: none;
+
+  @include bp-lg {
+    right: -6%;
+    opacity: 0.55;
+  }
+}
+
+.hero__dial-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__dial-ring {
+  fill: none;
+  stroke: $color-border-strong;
+  stroke-width: 1;
+
+  &--inner {
+    stroke: $color-border;
+  }
+}
+
+.hero__dial-tick {
+  stroke: $color-text-faint;
+  stroke-width: 2;
+}
+
+.hero__dial-hand {
+  stroke: $color-accent-primary;
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  &--minute {
+    stroke: $color-accent-light;
+    stroke-width: 1.5;
+  }
+}
+
+.hero__dial-pin {
+  fill: $color-accent-primary;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin-inline: auto;
+
+  @include bp-lg {
+    margin-inline: 0;
+  }
+}
+
+.hero__headline {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  margin-block: $space-4;
+
+  span {
+    color: $color-accent-primary;
+    font-style: italic;
+  }
+}
+
+.hero__subhead {
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin-bottom: $space-8;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+}

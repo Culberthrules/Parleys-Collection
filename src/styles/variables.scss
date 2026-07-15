@@ -1,0 +1,106 @@
+// ==========================================================================
+// Parleys 𓃵 Collection — Design Tokens
+// Mood: soft lavender boutique with deep indigo accents.
+// Inspired by the brand logo: warm lilac background, royal blue typography,
+// playful serif meets hand-drawn feel. Light, airy, and premium.
+// ==========================================================================
+
+// Color — Lavender / Indigo palette
+$color-bg:              #d6c3f0;          // soft lavender (main background)
+$color-bg-alt:          #cbb8e8;          // slightly deeper lavender
+$color-surface:         #e2d4f5;          // lighter lavender for cards
+$color-surface-raised:  #ecdff9;          // lightest lavender for modals
+
+$color-accent-primary:  #2b2d8e;          // deep indigo (primary accent)
+$color-accent-light:    #4a4dbf;          // lighter indigo for hover states
+$color-accent-soft:     rgba(43, 45, 142, 0.12); // soft indigo wash
+
+$color-text:            #1e1f5e;          // deep navy for headings
+$color-text-muted:      #4e4f8a;          // muted indigo for body text
+$color-text-faint:      #7a7bb0;          // faint indigo for hints
+
+$color-border:          rgba(43, 45, 142, 0.12);
+$color-border-strong:   rgba(43, 45, 142, 0.22);
+
+$color-success:         #3d7b5f;
+$color-danger:          #b3554a;
+
+// Type
+$font-display:  'Cormorant Garamond', Georgia, serif;
+$font-body:     'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono:     'IBM Plex Mono', 'Courier New', monospace;
+
+// Spacing scale (rem)
+$space-1:   0.25rem;
+$space-2:   0.5rem;
+$space-3:   0.75rem;
+$space-4:   1rem;
+$space-6:   1.5rem;
+$space-8:   2rem;
+$space-12:  3rem;
+$space-16:  4rem;
+$space-24:  6rem;
+$space-32:  8rem;
+
+// Radius — slightly softer to complement the playful brand
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+
+// Motion
+$ease:            cubic-bezier(0.22, 1, 0.36, 1);
+$transition-fast: 0.2s $ease;
+$transition-base: 0.35s $ease;
+$transition-slow: 0.6s $ease;
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1080px;
+$bp-xl: 1400px;
+
+@mixin bp-sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $bp-xl;
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @include bp-md {
+    padding-inline: $space-8;
+  }
+}
+
+@mixin visually-focused {
+  outline: 2px solid $color-accent-primary;
+  outline-offset: 3px;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

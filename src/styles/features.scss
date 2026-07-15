@@ -1,0 +1,58 @@
+@use './variables' as *;
+
+.features__container {
+  @include container;
+}
+
+.features__intro {
+  max-width: 44ch;
+  margin-bottom: $space-12;
+}
+
+.features__heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-top: $space-3;
+}
+
+.features__grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: 1fr;
+
+  @include bp-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include bp-lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature-card {
+  padding: $space-8 $space-6;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: border-color $transition-base, transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: $color-border-strong;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(43, 45, 142, 0.08);
+  }
+}
+
+.feature-card__icon {
+  font-size: 1.5rem;
+  color: $color-accent-primary;
+  margin-bottom: $space-4;
+}
+
+.feature-card__title {
+  font-size: 1.1rem;
+  margin-bottom: $space-2;
+}
+
+.feature-card__desc {
+  font-size: 0.9rem;
+}

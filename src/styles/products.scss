@@ -1,0 +1,80 @@
+@use './variables' as *;
+
+.products__container {
+  @include container;
+}
+
+.products__intro {
+  margin-bottom: $space-8;
+}
+
+.products__heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-top: $space-3;
+}
+
+.products__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin-bottom: $space-12;
+}
+
+.products__filter {
+  padding: $space-2 $space-4;
+  font-size: 0.8rem;
+  border: 1px solid $color-border-strong;
+  border-radius: 999px;
+  color: $color-text-muted;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $color-accent-primary;
+    color: $color-text;
+  }
+
+  &--active {
+    background-color: $color-accent-primary;
+    border-color: $color-accent-primary;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &--new {
+    border-color: $color-accent-primary;
+    color: $color-accent-primary;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+
+    &:hover,
+    &.products__filter--active {
+      background: linear-gradient(135deg, $color-accent-primary 0%, $color-accent-light 100%);
+      border-color: transparent;
+      color: #fff;
+    }
+  }
+}
+
+.products__grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: 1fr;
+
+  @include bp-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include bp-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include bp-xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.products__empty {
+  padding: $space-16 0;
+  text-align: center;
+}

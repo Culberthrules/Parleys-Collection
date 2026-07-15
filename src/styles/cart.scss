@@ -1,0 +1,147 @@
+@use './variables' as *;
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 31, 94, 0.35);
+  z-index: 50;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  background-color: $color-bg-alt;
+  border-left: 1px solid $color-border;
+  z-index: 51;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 24px rgba(43, 45, 142, 0.1);
+}
+
+.cart-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-6;
+  border-bottom: 1px solid $color-border;
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    font-size: 1.3rem;
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+}
+
+.cart-drawer__empty {
+  padding: $space-8 $space-6;
+  color: $color-text-muted;
+}
+
+.cart-drawer__items {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-4 $space-6;
+}
+
+.cart-item {
+  display: flex;
+  gap: $space-4;
+  padding-block: $space-4;
+  border-bottom: 1px solid $color-border;
+
+  img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+  }
+}
+
+.cart-item__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item__brand {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-accent-primary;
+}
+
+.cart-item__name {
+  font-size: 0.95rem;
+  color: $color-text;
+  margin-block: $space-1;
+}
+
+.cart-item__price {
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  margin-bottom: $space-2;
+}
+
+.cart-item__qty {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-sm;
+  padding: $space-1 $space-2;
+  width: fit-content;
+
+  button {
+    font-size: 0.8rem;
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-accent-primary;
+    }
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    min-width: 1ch;
+    text-align: center;
+  }
+}
+
+.cart-item__remove {
+  align-self: flex-start;
+  color: $color-text-faint;
+  font-size: 1rem;
+
+  &:hover {
+    color: $color-danger;
+  }
+}
+
+.cart-drawer__footer {
+  padding: $space-6;
+  border-top: 1px solid $color-border;
+}
+
+.cart-drawer__subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 1rem;
+  margin-bottom: $space-4;
+}
+
+.cart-drawer__checkout {
+  width: 100%;
+}

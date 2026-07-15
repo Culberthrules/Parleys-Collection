@@ -1,0 +1,123 @@
+@use './variables' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: transparent;
+  transition: background-color $transition-base, border-color $transition-base, box-shadow $transition-base;
+  border-bottom: 1px solid transparent;
+
+  &--scrolled {
+    background-color: rgba(214, 195, 240, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom-color: $color-border;
+    box-shadow: 0 2px 16px rgba(43, 45, 142, 0.06);
+  }
+}
+
+.navbar__inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: $space-4;
+}
+
+.navbar__logo {
+  font-family: $font-display;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  span {
+    color: $color-accent-primary;
+  }
+}
+
+.navbar__links {
+  display: none;
+  gap: $space-8;
+
+  @include bp-md {
+    display: flex;
+  }
+
+  a,
+  .navbar__links a {
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+
+    &:hover,
+    &.navbar__link--active {
+      color: $color-accent-primary;
+    }
+
+    &.navbar__link--active {
+      font-weight: 600;
+    }
+  }
+
+  &--open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $color-bg-alt;
+    padding: $space-6 $space-4;
+    gap: $space-4;
+    border-bottom: 1px solid $color-border;
+
+    @include bp-md {
+      position: static;
+      flex-direction: row;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.navbar__cart {
+  position: relative;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  padding: $space-2;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: $color-accent-primary;
+  color: #fff;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2px;
+}
+
+.navbar__menu-toggle {
+  font-size: 1.4rem;
+  display: flex;
+
+  @include bp-md {
+    display: none;
+  }
+}

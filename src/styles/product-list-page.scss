@@ -1,0 +1,159 @@
+@use './variables' as *;
+
+.shop__container {
+  @include container;
+}
+
+.shop__header {
+  margin-bottom: $space-12;
+  max-width: 42rem;
+}
+
+.shop__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: $space-3;
+}
+
+.shop__subtitle {
+  margin-top: $space-4;
+  font-size: 0.95rem;
+
+  code {
+    font-family: $font-mono;
+    font-size: 0.85em;
+    padding: 0.1em 0.35em;
+    border-radius: $radius-sm;
+    background-color: $color-accent-soft;
+    color: $color-text;
+  }
+}
+
+.shop__grid {
+  display: grid;
+  gap: $space-6;
+  grid-template-columns: 1fr;
+
+  @include bp-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include bp-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include bp-xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.shop-card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform $transition-base, border-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $color-border-strong;
+    box-shadow: 0 12px 32px rgba(43, 45, 142, 0.12);
+
+    .shop-card__media img {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.shop-card__media {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: $color-bg-alt;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+}
+
+.shop-card__badge {
+  position: absolute;
+  top: $space-3;
+  left: $space-3;
+  background-color: $color-accent-primary;
+  color: #fff;
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2em 0.55em;
+  border-radius: $radius-sm;
+  pointer-events: none;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(43, 45, 142, 0.3);
+}
+
+.shop-card__body {
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.shop-card__brand {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-accent-primary;
+  margin-bottom: $space-2;
+}
+
+.shop-card__name {
+  font-size: 1.15rem;
+  margin-bottom: $space-2;
+
+  a {
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+.shop-card__desc {
+  font-size: 0.85rem;
+  margin-bottom: $space-6;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shop-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.shop-card__price {
+  font-family: $font-mono;
+  font-size: 1rem;
+  color: $color-text;
+  font-weight: 600;
+}
+
+.shop-card__cta {
+  white-space: nowrap;
+}

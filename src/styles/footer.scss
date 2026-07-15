@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+.footer {
+  border-top: 1px solid $color-border;
+  padding-block: $space-8;
+}
+
+.footer__inner {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  @include bp-md {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer__logo {
+  font-family: $font-display;
+  color: $color-text;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+}
